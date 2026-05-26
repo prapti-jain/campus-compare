@@ -10,6 +10,14 @@ export default function FiltersSidebar() {
     setSelectedRating,
   } = useCollegeStore();
 
+  const locations = [
+    "Delhi",
+    "Rajasthan",
+    "Tamil Nadu",
+    "Uttar Pradesh",
+    "Telangana",
+  ];
+
   return (
     <aside className="sticky top-24 h-fit rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
       <h2 className="mb-6 text-xl font-semibold">
@@ -29,9 +37,16 @@ export default function FiltersSidebar() {
             }
             className="w-full rounded-xl border border-gray-200 bg-white p-3 text-sm outline-none"
           >
-            <option>All</option>
-            <option>Delhi</option>
-            <option>Rajasthan</option>
+            <option value="All">All</option>
+
+            {locations.map((location) => (
+              <option
+                key={location}
+                value={location}
+              >
+                {location}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -47,9 +62,9 @@ export default function FiltersSidebar() {
             }
             className="w-full rounded-xl border border-gray-200 bg-white p-3 text-sm outline-none"
           >
-            <option>All</option>
-            <option>4+</option>
-            <option>4.5+</option>
+            <option value="All">All</option>
+            <option value="4+">4+</option>
+            <option value="4.5+">4.5+</option>
           </select>
         </div>
       </div>
